@@ -10,7 +10,7 @@ import codecs
 
 
 
-st.title("Space Satellite Coordinator")
+st.title("**Space Satellite Coordinator**")
 
 bg_img = '''
     <style>
@@ -70,7 +70,7 @@ elif user_input_location:
 def callApi(input, planet):
     
 
-    openai.api_key = "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"
+    #openai.api_key = "enter your openai api key"
     messages = [ {"role": "system", "content": 
               "You are a intelligent SPACE assistant. You are to act as a chatbot for my space and solar system website to provide answers to questions about any planet or anything space related. Always stay on the topic of space and be as informative as you can. Limit your responses to 50 words."} ]
     
@@ -201,7 +201,7 @@ for i in range(0, 8, 2):
         
 
 def get_apod_data():
-    napi_key = "WcxSd9lx9TC7vGfjKKoqFor3CYnbQpZNesC8lVZe"  
+    #napi_key = "enter your nasa api key"  
     url = f"https://api.nasa.gov/planetary/apod?api_key={napi_key}"
     response = requests.get(url)
     data = response.json()
