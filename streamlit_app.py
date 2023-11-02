@@ -70,7 +70,7 @@ elif user_input_location:
 def callApi(input, planet):
     
 
-    openai.api_key = "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"
+    openai.api_key = "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"
     messages = [ {"role": "system", "content": 
               "You are a intelligent SPACE assistant. You are to act as a chatbot for my space and solar system website to provide answers to questions about any planet or anything space related. Always stay on the topic of space and be as informative as you can. Limit your responses to 50 words."} ]
     
@@ -200,5 +200,17 @@ for i in range(0, 8, 2):
         update()
         
 
+def get_apod_data():
+    napi_key = "WcxSd9lx9TC7vGfjKKoqFor3CYnbQpZNesC8lVZe"  
+    url = f"https://api.nasa.gov/planetary/apod?api_key={napi_key}"
+    response = requests.get(url)
+    data = response.json()
+    return data
 
+
+apod_data = get_apod_data()
+st.title("NASA's Astronomy Picture of the Day")
+st.image(apod_data["url"], use_column_width=True)
+st.write(apod_data["title"])
+st.write(apod_data["explanation"])
 
